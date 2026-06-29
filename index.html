@@ -104,7 +104,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="THE DEFECTOR TEXT BASED PROTOTYPE" startnode="195" creator="Twine" creator-version="2.12.0" format="SugarCube" format-version="2.37.3" ifid="6644495A-2705-4C1B-B900-485179405A07" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+	<tw-storydata name="THE DEFECTOR TEXT BASED PROTOTYPE" startnode="18" creator="Twine" creator-version="2.12.0" format="SugarCube" format-version="2.37.3" ifid="6644495A-2705-4C1B-B900-485179405A07" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 /* 1. Set the layout rules ONCE for every background */
 body[class*="bg-"] {
@@ -1241,6 +1241,14 @@ $(document).one(':storyready', function() {
     </div>`;
     $('body').append(screenFooter);
     
+});
+$(document).on('click', 'a, button, .thematic-btn', function() {
+    if (SimpleAudio.tracks.has("click_sfx")) {
+        let sfx = SimpleAudio.tracks.get("click_sfx");
+        sfx.stop(); 
+        sfx.volume(0.1); // Adjust this value between 0.0 and 1.0
+        sfx.play();
+    }
 });</script><tw-tag name="bg-forest" color="blue"></tw-tag><tw-tag name="bg-house" color="yellow"></tw-tag><tw-tag name="bg-lobby" color="yellow"></tw-tag><tw-tag name="bg-bedroom" color="purple"></tw-tag><tw-tag name="bg-pages" color="yellow"></tw-tag><tw-tag name="bg-kitchen" color="blue"></tw-tag><tw-tag name="fade" color="orange"></tw-tag><tw-tag name="bg-deity" color="yellow"></tw-tag><tw-tag name="bg-dining" color="green"></tw-tag><tw-tag name="bg-dining-dark" color="blue"></tw-tag><tw-tag name="bg-kitchen-dark" color="red"></tw-tag><tw-tag name="bg-basement" color="red"></tw-tag><tw-tag name="bg-basement-dark" color="green"></tw-tag><tw-tag name="bg-basement-door-dark" color="blue"></tw-tag><tw-tag name="bg-basement-door" color="green"></tw-tag><tw-tag name="bg-basement-room" color="green"></tw-tag><tw-tag name="bg-kitchen-door" color="orange"></tw-tag><tw-tag name="nomap" color="green"></tw-tag><tw-tag name="bg-forest-trail" color="yellow"></tw-tag><tw-tag name="bg-house-fence-gap" color="blue"></tw-tag><tw-tag name="bg-house-fence-backyards" color="blue"></tw-tag><tw-tag name="bg-lobby-broken-vase" color="green"></tw-tag><tw-tag name="bg-closed-room" color="purple"></tw-tag><tw-tag name="bg-closed-room-door" color="yellow"></tw-tag><tw-tag name="bg-closed-room-hole" color="orange"></tw-tag><tw-tag name="bg-lit-room" color="red"></tw-tag><tw-tag name="bg-bag" color="blue"></tw-tag><tw-tag name="bg-deity-attack" color="orange"></tw-tag><tw-tag name="bg-closed-room-end" color="purple"></tw-tag><tw-tag name="bg-closed-room-trunk" color="green"></tw-tag><tw-tag name="bg-closed-room-trunk-doll" color="purple"></tw-tag><tw-tag name="bg-kitchen-door-dark" color="green"></tw-tag><tw-tag name="doll" color="yellow"></tw-tag><tw-tag name="mirror" color="purple"></tw-tag><tw-tag name="kettle" color="purple"></tw-tag><tw-tag name="the-doll" color="yellow"></tw-tag><tw-tag name="the-kettle" color="purple"></tw-tag><tw-tag name="bg-hall" color="yellow"></tw-tag><tw-tag name="bg-hall-dark" color="orange"></tw-tag><tw-tag name="bg-black" color="orange"></tw-tag><tw-tag name="tag" color="purple"></tw-tag><tw-tag name="bg-lobby-upstairs" color="purple"></tw-tag><tw-tag name="bg-doll-messed" color="purple"></tw-tag><tw-tag name="bg-doll-clean" color="green"></tw-tag><tw-tag name="bg-doll" color="purple"></tw-tag><tw-tag name="Exit" color="yellow"></tw-tag><tw-passagedata pid="1" name="A Strange Whistle" tags="bg-hall" position="2475,1525" size="100,100">&lt;img src=&quot;https://file.garden/aJ47LkRaRB8KTsmE/Fire%20hot.svg&quot; width=&quot;80&quot;&gt;
 You enter a living room with a burning fireplace. Heavy wooden furniture fills the space, a sofa, cabinets, and a rocking chair arranged neatly around the fire. A large portrait hangs on the opposite end of the room.
 All of a sudden, a strange whistle cuts through the silence.
@@ -1441,7 +1449,7 @@ If there are signs of sorrow from the lifeless, do the following:
 
     &lt;div style=&quot;display: flex; justify-content: center;&quot;&gt;
       &lt;span class=&quot;thematic-btn&quot;&gt;
-        &lt;&lt;link &quot;✔ I UNDERSTAND&quot; &quot;Start Menu&quot;&gt;&gt; &lt;&lt;audio &quot;main_theme&quot; volume 0.5 play loop&gt;&gt;&lt;&lt;/link&gt;&gt;
+        &lt;&lt;link &quot;✔ I UNDERSTAND&quot; &quot;Start Menu&quot;&gt;&gt; &lt;&lt;audio &quot;main_theme&quot; volume 1.0 play loop&gt;&gt;&lt;&lt;/link&gt;&gt;
       &lt;/span&gt;
     &lt;/div&gt;
 
@@ -2709,6 +2717,7 @@ images.forEach(src =&gt; {
 &lt;&lt;/script&gt;&gt;
 
 &lt;&lt;cacheaudio &quot;main_theme&quot; &quot;https://file.garden/aJ47LkRaRB8KTsmE/Rules%20of%20Agony.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;click_sfx&quot; &quot;https://file.garden/aJ47LkRaRB8KTsmE/shutter%20click.mp3&quot;&gt;&gt;
 
 &lt;&lt;set $playerPath to []&gt;&gt;
 
